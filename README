@@ -1,0 +1,38 @@
+*************************************
+README
+*************************************
+
+Scripts in this package install and configure OIM 11gR2. Dependencies such as Oracle WebLogic Server, Oracle SOA Suite and Database Security Store are also installed and configured. No LDAP Server is installed and OIM LDAP Sync is not configured in this version. Also, this version supports installation on Linux only. 
+
+Following are the pre-requisetes for scripts in this package: 
+a) Server with sufficent hardware as specified by Oracle, (see official documentation for more information).
+b) Linux OS installed and configured as specified by Oracle, (see official documentation for more information).
+c) Oracle Database installed and configured as specified by Oracle, (see official documentation for more information).
+d) Downloaded and unzipped software.
+e) Created Oracle Middleware folder "/oracle/mdw", Oracle SOA folder "/oracle/mdw/soa" and Oracle IAM folder "/oracle/mdw/iam".
+f) Installed supported JDK-version.
+
+Following is the list of software needed:
+a) Oracle WebLogic Server 11gR1 (10.3.6) Generic and Coherence
+b) Oracle SOA Suite 11g Patch Set 5 (11.1.1.6.0) (Part 1 of 2)
+c) Oracle SOA Suite 11g Patch Set 5 (11.1.1.6.0) (Part 2 of 2)
+d) Oracle Identity and Access Management 11g (11.1.2.0.0) (Part 1 of 2)
+e) Oracle Identity and Access Management 11g (11.1.2.0.0) (Part 2 of 2)
+f) Oracle Fusion Middleware Repository Creation Utility 11g (11.1.2.0.0) for linux only
+
+
+The following is the procedure for installing and configuring OIM:
+1.) Update environment.params with values for your environment.
+2.) Update passwordfile.txt with passwords for your environment. The first line is database password. The following lines are schema passwords, one per component; order of passwords and components in RCU command must be the same. 
+3.) Update silent.xml with values for your environment. The file MUST start with the XML-definition. See documentation for examples.
+4.) Update soa_install_only.rsp with values for your environment.
+5.) Update iam_install_only.rsp with values for your environment.
+6.) Update iam_config_only.rsp with values for your environment.
+7.) Change directory to directory defined in $SCRIPT_DIR.
+8.) Add execution rights for files silentInstall.sh and silentConfig.sh.
+9.) Run silentInstall.sh and follow the log file install.log in $SCRIPT_DIR for installation details.
+10.) When the script has successfully finished, create a new WebLogic domain by running the GUI configuration. Run the file $MW_HOME/oracle_common/common/bin/config.sh. Choose only template for "Oracle Identity Manager - 11.1.2.0.0 [iam]"; choosing this option, automatically chooses the dependant templates. Provide necessary information when required.
+11.) Open the file $WLS_DOMAIN_DIR/bin/startManagedWebLogic.sh and add values for variables WLS_USER and WLS_PW.
+12.) Run silentConfig.sh and follow the log file config.log in $SCRIPT_DOR for configuration details.
+13.) When the script has successfully finished, open $IAM_HOME/server/bin/setEnv.sh and change value of the variable XEL_HOME to the absolute path of $IAM_HOME/server. Onlys absolute paths are allowed, eg. /oracle/mdw/iam/server.
+14.) Verify the OIM installation, (see official documentation for more information).
