@@ -1,0 +1,155 @@
+[ENGINE]
+
+#DO NOT CHANGE THIS.
+Response File Version=1.0.0.0.0
+
+[GENERIC]
+
+#Provide the complete path of the Oracle Home. The Oracle Home directory name may only contain alphanumeric , hyphen (-) , dot (.) and underscore (_) characters, and it must begin with an alphanumeric character.
+ORACLE_HOME=/oracle/mdw/iam
+
+#Provide Database connection string in the format host:port:servicename.
+DB_HOST_NAME=<YOUR_DB_SERVER_HOST>:<YOUR_DB_SERVER_PORT>:<YOUR_DB_SID>
+OIM_DATABASE_CONNECTSTRING=<YOUR_DB_SERVER_HOST>:<YOUR_DB_SERVER_PORT>:<YOUR_DB_SID>
+
+#Provide OIM Schema name.
+DB_USER_NAME=DEV_OIM
+OIM_SCHEMA_USER_NAME=DEV_OIM
+
+#Provide OIM Schema password.
+DB_PASSWORD=<YOUR_PASSWORD>
+OIM_SCHEMA_USER_PASSWORD=<YOUR_PASSWORD>
+
+#Provide MDS Schema name.
+MDS_USER_NAME=DEV_MDS
+
+#Provide MDS Schema password.
+MDS_PASSWORD=<YOUR_PASSWORD>
+
+#Provide MDS Schema Database connection string, if MDS and OIM schemas are loaded on different databases.
+MDS_DATABASE_CONNECTSTRING=<YOUR_DB_SERVER_HOST>:<YOUR_DB_SERVER_PORT>:<YOUR_DB_SID>
+
+#Provide true if MDS and OIM schemas are loaded on different databases.
+SELECT_DIFFERENT_DATABASE_FOR_MDS=false
+
+#Provide true if OIM Schema is already encrypted.
+IS_OIM_UPGRADE=false
+
+#Provide list of selected languages separated by comma inside {}.
+SELECTED_LANGUAGES={"en_US","nb_NO"}
+
+#Provide the default language for OIM.
+OIM_DEFAULT_LOCALE=en_US
+
+#Provide the password for the System Administrator(xelsysadm). Valid Passwords must contain at least 6 characters, must begin with an alphabetic character, and include at least one number, one uppercase letter and one lowercase letter. Password cannot contain firstname, lastname and loginname of OIM.
+USER_PASSWORD=<YOUR_PASSWORD>
+OIM_ADMINISTRATOR_PASSWORD=<YOUR_PASSWORD>
+
+#Confirm the System Administrator(xelsysadm) password.
+USER_CONFIRM_PASSWORD=<YOUR_PASSWORD>
+CONFIRM_OIM_ADMINISTRATOR_PASSWORD=<YOUR_PASSWORD>
+
+#Provide the complete path to WebLogic domain home.
+OIM_DOMAIN_HOME=/oracle/mdw/user_projects/domains/oim_domain
+
+#Provide the HTPP Proxy URL. Format: http(s)://hostname:port
+OIM_FRONTEND_URL=http://<YOUR_OIM_SERVER_HOST>:14000
+PROXY_URL_FOR_OIM=http://<YOUR_OIM_SERVER_HOST>:14000
+
+#Provide the KeyStore Password. Valid passwords are 6 to 30 characters long, must begin with an alphabetic character, use only alphanumeric, underscore (_), dollar ($) or pound (#) characters and include at least one number.
+KEYSTORE_PASSWORD=<YOUR_PASSWORD>
+
+#Confirm the KeyStore Password.
+KEYSTORE_CONFIRM_PASSWORD=<YOUR_PASSWORD>
+
+#Specify SOA Managed Server T3 URL. Format: t3(s)://host1:port1,host2:port2,...,hostn:portn
+SOA_MANAGED_SERVER_T3_URL=t3://<YOUR_OIM_SERVER_HOST>:8001
+
+#Specify SOA Managed Server HTTP URL. Format: http(s)://host1:port1,host2:port2,...,hostn:portn
+SOA_MANAGED_SERVER_HTTP_URL=http://<YOUR_OIM_SERVER_HOST>:8001
+
+#Set this to true if you want to enable BI for existing OIM setup.
+CONFIGURE_BI_PUBLISHER_FOR_OIM=false
+
+#Provide true to enable LDAP sync. LDAP sync synchronizes Oracle Identity Manager users, roles, role membership and role hierarchy to a LDAP directory. Any direct changes in the directory will be reconciled back to Oracle Identity Manager.
+SELECTION_OPTIONS_PAGE_SYNC_LDAP=false
+
+#Provide BI Publisher URL. Format: http://hostname:port/xmlpserver, where hostname and port are the host name and port on which BIP server is running. 
+BI_PUBLISHER_URL=http://<YOUR_OIM_SERVER_HOST>:7006
+
+#Enter password for the OIM access gate in OAM. Ensure that the Access Gate password entered here and the Webgate password that have been configured for the webgate are the same.
+ACCESS_GATE_PASSWORD=<YOUR_PASSWORD>
+
+#Enter domain of the OHS front-ending OIM.
+OIM_COOKIE_DOMAIN=.<YOUR_SERVER_DOMAIN>
+
+#Specify WebLogic Administrator User Name.
+WEBLOGIC_ADMINISTRATOR_USERNAME=weblogic
+
+#Specify WebLogic Administrator Password.
+WEBLOGIC_ADMINISTRATOR_PASSWORD=<YOUR_PASSWORD>
+
+#Provide WebLogic Admin Server URL of the domain in the format t3://hostname:port.
+WEBLOGIC_ADMIN_SERVER_URL=t3://<YOUR_OIM_SERVER_HOST>:7001
+
+#Provide WebLogic Managed Server hostname in which Oracle Identity Manager application is deployed.
+AS_HOST_NAME=<YOUR_OIM_SERVER_HOST>
+
+#Provide WebLogic Managed Server port in which Oracle Identity Manager application is deployed.
+AS_PORT_NUMBER=14000
+
+#Provide the service name for Remote Manager under which this Remote Manager will be registered. It is used along with Registry URL to build fully qualified service name. For e.g. rmi://host:RMI Registry Port/service name.
+RM_SERVICE_NAME=RManager
+
+#Provide the Remote Manager RMI Registry Port. RMI Registry is started on this port.
+RM_BINDING_PORT=12345
+
+#Provide the Remote Manager Listen Port. A Secure Socket is opened on this port to listen client requests.
+RM_SSL_PORT=12346
+
+
+[SYSTEM]
+
+
+[APPLICATIONS]
+
+
+[RELATIONSHIPS]
+
+#
+COMPONENT_OIM_SELECTION_ROOT=true
+
+#Provide true to configure OIM Server.
+OIM_SERVER=true
+
+#Provide true to configure OIM Design Console.
+INSTALL_OIM_DESIGN_CONSOLE=false
+
+#Provide true to configure OIM Remote Manager.
+INSTALL_OIM_REMOTE_MANAGER=false
+
+#
+IS_SERVICE_ID_USED_IN_SPECIFYODSPASSWORDPAGE=false
+
+#Provide LDAP URL in the format ldap://ovd_host:ovd_port.
+AUTHENTICATION_LDAP_TYPE_LDAP_URL=ldap://<YOUR_OIM_SERVER_HOST>:3060
+
+#Provide the user name of LDAP server.
+AUTHENTICATION_LDAP_TYPE_LDAP_USER_NAME=cn=orcladmin
+
+#Provide LDAP server password.
+AUTHENTICATION_LDAP_TYPE_LDAP_PASSWORD=<YOUR_PASSWORD>
+
+#Provide the LDAP Base DN.
+AUTHENTICATION_LDAP_TYPE_LDAP_BASEDN=<YOUR_BASE_DN>
+
+#Provide the LDAP Role Container. This is the default container where roles are created in the LDAP directory. You can configure isolation rules in Oracle Identity Manager to create roles in different containers in LDAP.
+LDAP_ROLECONTAINER=cn=groups
+
+#Provide the LDAP User Container. This is the default container where users are created in the LDAP directory. You can configure isolation rules in Oracle Identity Manager to create users in different containers in LDAP.
+LDAP_USERCONTAINER=cn=users
+
+#Provide the LDAP User Reservation Container value. LDAP container used for reserving users while waiting for user creation approvals in OIM. Once the user creation is approved, users are moved from reservation container to user container.
+LDAP_USER_RESERVATION_CONTAINER=cn=reserve
+
+
